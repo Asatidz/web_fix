@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori Pelanggaran</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>System Informasi Pelaporan Pelanggaran</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Main Navigation</h2>
+            <ul>
+                <li><a href="dashboard.html" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#" onclick="showSection('data-kategori')"><i class="fas fa-folder"></i> Data Kategori</a></li>
+                <ul id="data-kategori-submenu" class="hidden">
+                    <li><a href="#" onclick="showSection('kategori-pelanggran')"><i class="fas fa-list"></i> Kategori Pelanggran</a></li>
+                    <li><a href="#" onclick="showSection('list-pelanggaran')"><i class="fas fa-exclamation-triangle"></i> List Pelanggaran</a></li>
+                </ul>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+
+            <div id="data-kategori" class="section hidden">
+                <h1>Data Kategori</h1>
+                <p>Data Kategori content goes here.</p>
+            </div>
+            <div id="kategori-pelanggran" class="section hidden">
+                <h1>Kategori Pelanggaran</h1>
+                <button class="add-data-btn">+ Add Data</button>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Pelanggaran</th>
+                                <th>Point Yang di Dapat</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody><?php
+                        $koneksi = mysqli_connect("localhost", "root", "root", "poin");
+
+                        if (!$koneksi) {
+                        die("Koneksi gagal: " . mysqli_connect_error());
+                        }
+
+                        $query = "SELECT * FROM Jenis_Pelanggaran";
+                        $hasil = mysqli_query($koneksi, $query);
+
+// Membuat tabel HTML untuk menampilkan data
+                   
+
+                        while($arr_siswa = mysqli_fetch_array($hasil)){
+                        echo "<tr>
+                         <td>".$arr_siswa["pelanggaran_id"]."</td>
+                        <td>".$arr_siswa["jenis_pelanggaran"]."</td> 
+                        <td>".$arr_siswa["poin"]."</td> 
+                        </tr>";
+                        }
+
+                        echo "</tbody></table>";
+
+// Menutup koneksi
+                        mysqli_close($koneksi);
+                        ?>
+
+                     
+                            
+                            <!-- <td class="action-buttons">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash"></i> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="list-pelanggaran" class="section hidden">
+                <h1>List Pelanggaran</h1>
+                <p>List Pelanggaran content goes here.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>By Made <i class="fas fa-heart"></i> by TechnoMancers | <span>2025</span></p>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+            if (sectionId === 'data-kategori') {
+                document.getElementById('data-kategori-submenu').classList.remove('hidden');
+            } else {
+                document.getElementById('data-kategori-submenu').classList.add('hidden');
+            }
+        }
+        </script>
+</body>
+
+</html>
