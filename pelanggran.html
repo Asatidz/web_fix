@@ -14,12 +14,12 @@
             <h2>Main Navigation</h2>
             <ul>
                 <li><a href="dashboard.html" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#" onclick="showSection('data-kategori')"><i class="fas fa-folder"></i> Data Kategori</a></li>
+                <li><a href="" onclick="showSection('data-kategori')"><i class="fas fa-folder"></i> Data Kategori</a></li>
                 <ul id="data-kategori-submenu" class="hidden">
-                    <li><a href="#" onclick="showSection('kategori-pelanggran')"><i class="fas fa-list"></i> Kategori Pelanggran</a></li>
-                    <li><a href="#" onclick="showSection('list-pelanggaran')"><i class="fas fa-exclamation-triangle"></i> List Pelanggaran</a></li>
+                    <li><a href="pelanggran.html" onclick="showSection('kategori-pelanggran')"><i class="fas fa-list"></i> Kategori Pelanggran</a></li>
+                    <li><a href="listpelanggran.html" onclick="showSection('list-pelanggaran')"><i class="fas fa-exclamation-triangle"></i> List Pelanggaran</a></li>
                 </ul>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
 
@@ -40,38 +40,13 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody><?php
-                        $koneksi = mysqli_connect("localhost", "root", "root", "poin");
-
-                        if (!$koneksi) {
-                        die("Koneksi gagal: " . mysqli_connect_error());
-                        }
-
-                        $query = "SELECT * FROM Jenis_Pelanggaran";
-                        $hasil = mysqli_query($koneksi, $query);
-
-// Membuat tabel HTML untuk menampilkan data
-                   
-
-                        while($arr_siswa = mysqli_fetch_array($hasil)){
-                        echo "<tr>
-                         <td>".$arr_siswa["pelanggaran_id"]."</td>
-                        <td>".$arr_siswa["jenis_pelanggaran"]."</td> 
-                        <td>".$arr_siswa["poin"]."</td> 
-                        </tr>";
-                        }
-
-                        echo "</tbody></table>";
-
-// Menutup koneksi
-                        mysqli_close($koneksi);
-                        ?>
+                        <tbody> 
 
                      
                             
-                            <!-- <td class="action-buttons">
+                             <td class="action-buttons">
                                 <i class="fas fa-edit"></i>
-                                <i class="fas fa-trash"></i> -->
+                                <i class="fas fa-trash"></i> 
                         </tbody>
                     </table>
                 </div>
