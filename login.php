@@ -56,5 +56,9 @@
 </div>
 
    </div>
+       <div class="footer">
+      By Made <i class="fas fa-heart"></i> by TechnoMancers
+      <i class="fas fa-smile"></i> 2025
+    </div>
 </body>
 </html>

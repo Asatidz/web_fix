@@ -56,7 +56,6 @@ if(empty($_SESSION['username']) OR empty($_SESSION['password'])) {
   </body>
 </html>
 
-
 <?php
 }
 ?>
