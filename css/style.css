@@ -87,56 +87,177 @@
 /* =============== */
 /* DAshboard */
 /* =============== */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
+/* ======================= */
+/* style halaman dashboard */
+/* ======================= */
+header {
+  background: purple;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 20px;
 }
-.header {
-  background-color: #ccc;
-  padding: 10px 20px;
-  text-align: left;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
+
+/* mengatur lebar menu */
+aside {
+  flex: 20%;
+  background: #222;
 }
-.container {
-  display: flex;
-  height: calc(100vh - 50px);
+
+/* mengatur lebar konten  */
+section.main {
+  flex: 80%;
+  background: #fff;
+  min-height: 530px;
+  padding: 15px 20px;
 }
-.sidebar {
-  width: 250px;
-  background-color: #333;
-  color: white;
+
+/* mengatur footer dn teks ditengah */
+footer {
+  background: #ccc;
+  color: #555;
   padding: 20px;
-  box-sizing: border-box;
+  text-align: center;
 }
-.sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
+
+/* mengatur layout(responsive) */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
 }
-.sidebar ul {
-  list-style: none;
+
+/* navigas dan membuang pading */
+.menu {
   padding: 0;
 }
-.sidebar ul li {
-  margin-bottom: 10px;
+
+/* menambah border bawah */
+.menu li {
+  border-bottom: 1px solid dotted #444;
+  list-style: none;
 }
-.sidebar ul li a {
-  color: white;
+
+/* mengatur desain mneu yang dibuat dengan tag a */
+.menu a {
+  display: block;
+  padding: 20px 20px;
+  color: #fff;
   text-decoration: none;
-  display: flex;
-  align-items: center;
+}
+
+/* mengammbil background menu ketika ditunjuk mouse */
+.menu a:hover {
+  background: #000;
+}
+
+/* ======================= */
+/* Tabel Data Pegawai */
+/* ======================= */
+/* mengatur desain judul halaman dengan border  */
+.judul {
+  color: #555;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+/* mengatur lebar tabel penuh dan antaer boordor tdk memmiliki jarak */
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* menambahkan border dan pading pada sel tambahan */
+.table th,
+.table td {
+  border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 5px;
 }
-.sidebar ul li a:hover {
-  background-color: #444;
+
+/* background judul table */
+.table th {
+  background: #eee;
 }
-.sidebar ul li a i {
-  margin-right: 10px;
+
+/* mengatur desain tombol tag <a> */
+.tombol {
+  display: inline-block;
+  max-width: 150px;
+  padding: 15px 30px;
+  color: #fff;
+  text-decoration: none;
+  background: purple;
+  cursor: pointer;
 }
+
+/* desian tombol eit ddan haus */
+.tombol.edit,
+.tombol.hapus {
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+.tombol.hapus {
+  background: #fc4c4c;
+}
+
+.table tr {
+  text-align: center;
+}
+
+/* ======================= */
+/* Formmmmmmmmmmmmmmmmmmmmm */
+/* ======================= */
+
+/* agar tdk pengaruh float */
+.form-group {
+  clear: both;
+}
+
+/* mengatur lebar label */
+.form-group label {
+  display: block;
+  padding: 15px 0;
+  float: left;
+  width: 30%;
+  font-weight: bold;
+}
+
+/* ngatur lebar input sejajar dgn label */
+.form-group .input {
+  display: block;
+  width: 50%;
+  float: left;
+}
+
+/* teks input radio */
+input[type="radio"] {
+  width: 50px;
+}
+.tombol.simpan {
+  background: purple;
+}
+.tombol.reset {
+  background: #fb8307;
+}
+
+/* membuat tampilan form numpuk pada lyar */
+@media (max-width: 700px) {
+  .form-group label,
+  .form-group .input {
+    width: 100%;
+  }
+}
+
+table img {
+  width: 80px; /* Atur lebar sesuai kebutuhan */
+  height: auto; /* Biarkan tinggi menyesuaikan */
+  max-height: 100px; /* Batasi tinggi maksimal */
+  object-fit: cover; /* Menjaga proporsi gambar */
+  display: block;
+  margin: auto;
+}
+
 .content {
   flex: 1;
   padding: 20px;

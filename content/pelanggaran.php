@@ -8,10 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelanggaran</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
             <div class="main-content">
-                <h1>Kategori Pelanggaran</h1>
+                <h1 class="judul">Kategori Pelanggaran</h1>
                 <a href="?hal=pelanggaran_tambah" class="tambah">Add Pelanggaran</a>
                 <div class="table-container">
                     <table>
@@ -36,9 +37,11 @@
                 <tr>
                 <td><?= $no ?></td>
                 <td><?= $data['nama_pelanggaran'] ?></td>
+                <td><?= $data['poin'] ?></td>
+                <td><?= $data['kode_pelanggaran'] ?></td>
                 <td class="action-icons">
-                    <a href="?hal=pelanggaran_editt&id=<?= $data['id_pelanggaran'] ?>"><i class="fas fa-edit"></i></a>
-                    <a href="?hal=pelanggaran_hapus&id=<?= $data['id_pelanggaran'] ?>"><i class="fas fa-trash-alt"></i></a>
+                    <a href="?hal=pelanggaran_editt&id=<?= $data['id_pelanggaran'] ?>"><i class="fas fa-edit">Edit</i></a>
+                    <a href="?hal=pelanggaran_hapus&id=<?= $data['id_pelanggaran'] ?>"><i class="fas fa-trash-alt">Hapus</i></a>
                 </td>
               </tr>
         <?php

@@ -19,9 +19,9 @@ if(!defined('INDEX')) die("");
             </div>
           </div>
         <div class="form-group">
-            <label for="kode_poin">Kode Poin</label>
+            <label for="kode">Kode Poin</label>
             <div class="input">
-              <input type="number" name="kode_poin" id="kode_poin">
+              <input type="number" name="kode" id="kode">
             </div>
           </div>
 
